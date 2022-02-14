@@ -24,25 +24,37 @@
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="phone" method="post" novalidate>
+        <form action="check" method="post" novalidate>
 
           <div class="govuk-form-group">
-            <fieldset class="govuk-fieldset">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
                   Do you have an email address we can contact you on?
                 </h1>
               </legend>
+              <div id="contact-hint" class="govuk-hint">
+                We can send you updates about your claim closure by email.
+              </div>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="email" name="email" type="radio" value="Yes" {{ checked("email", "Yes") }}>
-                  <label class="govuk-label govuk-radios__label" for="email">
+                  <input class="govuk-radios__input" id="phone" name="phone" type="radio" value="Yes" data-aria-controls="conditional-contact">
+                  <label class="govuk-label govuk-radios__label" for="phone">
                     Yes
                   </label>
                 </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-email">
+                      Enter your email address
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-email" name="contact-by-email" type="email" spellcheck="false" autocomplete="email" value="{{ data['contact-by-email'] }}">
+                  </div>
+
+                </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="email-2" name="email" type="radio" value="No" {{ checked("email", "No") }}>
-                  <label class="govuk-label govuk-radios__label" for="email-2">
+                  <input class="govuk-radios__input" id="phone-2" name="phone" type="radio" value="No" data-aria-controls="conditional-contact-2">
+                  <label class="govuk-label govuk-radios__label" for="phone-2">
                     No
                   </label>
                 </div>

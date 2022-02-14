@@ -2,7 +2,7 @@
 {% extends "layout-cc.html" %}
 
 {% block pageTitle %}
-  Do you have a claimant commitment? – Service name
+  Does this job start in the next 7 days? – Service name
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,25 +24,25 @@
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="reason" method="post" novalidate>
+        <form action="no-next-7-days" method="post" novalidate>
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Do you have a claimant commitment?
+                  Does this job start in the next 7 days?
                 </h1>
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="claimant-commitment" name="claimant-commitment" type="radio" value="Yes" {{ checked("claimant-commitment", "Yes") }}>
-                  <label class="govuk-label govuk-radios__label" for="claimant-commitment">
+                  <input class="govuk-radios__input" id="next-7-days" name="next-7-days" type="radio" value="Yes" {{ checked("next-7-days", "Yes") }}>
+                  <label class="govuk-label govuk-radios__label" for="next-7-days">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="claimant-commitment-2" name="claimant-commitment" type="radio" value="No" {{ checked("claimant-commitment", "No") }}>
-                  <label class="govuk-label govuk-radios__label" for="claimant-commitment-2">
+                  <input class="govuk-radios__input" id="next-7-days-2" name="next-7-days" type="radio" value="No" {{ checked("next-7-days", "No") }}>
+                  <label class="govuk-label govuk-radios__label" for="next-7-days-2">
                     No
                   </label>
                 </div>
