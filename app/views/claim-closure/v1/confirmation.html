@@ -28,21 +28,78 @@
 
           <div class="govuk-panel govuk-panel--confirmation">
             <h1 class="govuk-panel__title">
-              Claim closure request received
+              Your information has been submitted
             </h1>
-            <!-- <div class="govuk-panel__body">
-              Your reference number<br><strong>HDJ2123F</strong>
-            </div> -->
+            <div class="govuk-panel__body">
+              Reference number<br><strong>HDJ2123F</strong>
+            </div>
           </div>
 
           <p class="govuk-body">
-            We've sent you a confirmation email to <strong>{{ data['contact-by-email'] }}</strong>
+            You can <a href="check" target="_blank">print or save a copy of your answers</a>. You will not be able to do so after you leave this page.
           </p>
 
+          <h2 class="govuk-heading-s">
+            {{ data['benefit-type'] }}
+          </h2>
           <p class="govuk-body">
-            <strong>What happens next?</strong><br/>
-            You’ll receive that Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            You have sent your request to end your claim for {{ data['benefit-type'] }}.
           </p>
+
+          <p>We will:</p>
+          <ul class="govuk-list govuk-list--bullet">
+            <li>
+               send a confirmation that we have received your request
+            </li>
+            <li>
+              tell you when we start to process your request
+            </li>
+            <li>
+              tell you if we need to talk to you
+            </li>
+            <li>
+              tell you when your request is completed
+            </li>
+          </ul>
+
+          <h2 class="govuk-heading-s">
+            If something changes
+          </h2>
+
+          <p>
+            If one or more of the answers you have told us changes, you must tell us.
+          </p>
+
+          <p>
+            You will need to contact <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">JobCentre Plus</a> quoting your reference number.
+          </p>
+
+          <hr class="govuk-section-break govuk-section-break--xl govuk-section-break--visible">
+
+          <h2 class="govuk-heading-m">
+            Next steps
+          </h2>
+
+          <h3 class="govuk-heading-s">
+            Other benefits you receive
+          </h3>
+
+          <p>
+            If you are claiming any other benefits that you want to close, such as Universal Credit or Income Support, you need to close them separately. Contact <a href="https://www.gov.uk/contact-jobcentre-plus/existing-benefit-claims">JobCentre Plus</a> to do this.
+          </p>
+
+          <h3 class="govuk-heading-s">
+            Final payment
+          </h3>
+
+          <p>
+            When we have closed your claim, we will send you a letter. If you are owed a final payment, this letter will tell you how much that is.
+          </p>
+
+          <p>
+            If you have been overpaid, then we will tell you how much that is and what you need to do.
+          </p>
+
 
         </form>
       </div>
