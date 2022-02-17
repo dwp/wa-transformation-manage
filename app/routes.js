@@ -5,6 +5,7 @@ const router = express.Router()
 
 module.exports = router
 
+// Found work version 1
 
 // No claimant commitment
 
@@ -95,5 +96,62 @@ router.post('/claim-closure/v1/more-than-5-weeks', function (req, res) {
     res.redirect('/claim-closure/v1/no-more-than-16')
   } else {
     res.redirect('/claim-closure/v1/more-than-5-weeks')
+  }
+})
+
+
+// Found work version 2
+
+// No claimant commitment
+
+router.post('/claim-closure/v2/reason', function (req, res) {
+
+  let claimantCommitment = req.session.data['claimant-commitment']
+
+  if (claimantCommitment === 'No') {
+    res.redirect('/claim-closure/v2/no-claimant-commitment')
+  } else {
+    res.redirect('/claim-closure/v2/reason')
+  }
+})
+
+// Employment type
+
+router.post('/claim-closure/v2/hours', function (req, res) {
+
+  let employmentType = req.session.data['employment-type']
+
+  if (employmentType === 'Full time') {
+    res.redirect('/claim-closure/v2/hours')
+  } else if (employmentType === 'Part time') {
+    res.redirect('/claim-closure/v2/hours')
+  } else {
+    res.redirect('/claim-closure/v2/no-employment-type')
+  }
+})
+
+// Employment type
+
+router.post('/claim-closure/v2/more-than-5-weeks', function (req, res) {
+
+  let hours = req.session.data['hours']
+
+  if (hours === '16 hours or more') {
+    res.redirect('/claim-closure/v2/more-than-5-weeks')
+  } else {
+    res.redirect('/claim-closure/v2/no-hours')
+  }
+})
+
+// Start date
+
+router.post('/claim-closure/v2/when-did-you-start', function (req, res) {
+
+  let started = req.session.data['have-you-started']
+
+  if (started === 'Yes') {
+    res.redirect('/claim-closure/v2/when-did-you-start')
+  } else {
+    res.redirect('/claim-closure/v2/when-do-you-start')
   }
 })
