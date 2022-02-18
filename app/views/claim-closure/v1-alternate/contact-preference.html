@@ -1,0 +1,88 @@
+
+{% extends "layout-cc.html" %}
+
+{% block pageTitle %}
+  Would you like to receive text or email updates about your claim closure? – Service name
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="check" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset" aria-describedby="contact-hint">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  Would you like to receive text or email updates about your claim closure?
+                </h1>
+              </legend>
+              <!-- <div id="contact-hint" class="govuk-hint">
+                We can send you updates about your claim closure.
+              </div> -->
+              <div class="govuk-radios" data-module="govuk-radios">
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-preference" name="contact-preference" type="radio" value="Yes, by text" data-aria-controls="conditional-contact" {{ checked("contact-preference", "Yes, by text") }}>
+                  <label class="govuk-label govuk-radios__label" for="contact-preference">
+                    Yes, by text
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-phone">
+                      Phone number
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-contact-preference" name="contact-by-phone" type="contact-preference" spellcheck="false" autocomplete="contact-preference" value="{{ data['contact-by-phone'] }}">
+                  </div>
+
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-preference-2" name="contact-preference" type="radio" value="Yes, by email" data-aria-controls="conditional-contact-2" {{ checked("contact-preference", "Yes, by email") }}>
+                  <label class="govuk-label govuk-radios__label" for="contact-preference-2">
+                    Yes, by email
+                  </label>
+                </div>
+                <div class="govuk-radios__conditional govuk-radios__conditional--hidden" id="conditional-contact-2">
+                  <div class="govuk-form-group">
+                    <label class="govuk-label" for="contact-by-email">
+                      Email address
+                    </label>
+                    <input class="govuk-input govuk-!-width-two-thirds" id="contact-by-contact-preference" name="contact-by-email" type="contact-preference" spellcheck="false" autocomplete="contact-preference" value="{{ data['contact-by-email'] }}">
+                  </div>
+
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="contact-preference-3" name="contact-preference" type="radio" value="No" data-aria-controls="conditional-contact-3" {{ checked("contact-preference", "No") }}>
+                  <label class="govuk-label govuk-radios__label" for="contact-preference-3">
+                    No
+                  </label>
+                </div>
+              </div>
+
+            </fieldset>
+          </div>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}
