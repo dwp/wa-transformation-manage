@@ -61,21 +61,58 @@
         <h2 class="govuk-heading-m">Work details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          {% if data['permitted-work']=="No" %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Is it permitted work?
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['permitted-work'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="permitted-work">
-                  Change<span class="govuk-visually-hidden"> answer</span>
-                </a>
-              </dd>
-            </div>
-          {% endif %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Employment type
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['employment-type'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="employment-type">
+                Change<span class="govuk-visually-hidden"> answer</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              How many hours will you be working?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['hours'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="hours">
+                Change<span class="govuk-visually-hidden"> hours</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Earnings per week
+            </dt>
+            <dd class="govuk-summary-list__value">
+              &pound;{{ data['earnings-per-week'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="are-you-being-paid">
+                Change<span class="govuk-visually-hidden"> answer</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              More than 5 weeks
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['more-than-5-weeks'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="more-than-5-weeks">
+                Change<span class="govuk-visually-hidden"> answer</span>
+              </a>
+            </dd>
+          </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Have you started work?
@@ -89,61 +126,36 @@
               </a>
             </dd>
           </div>
-          {% if data['next-7-days']=="Yes" %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Will you be starting in the next 7 days?
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['next-7-days'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="next-7-days">
-                  Change<span class="govuk-visually-hidden"> answer</span>
-                </a>
-              </dd>
-            </div>
+          {% if data['have-you-started']=="Yes" %}
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              When did you start?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['start-date-day'] }} {{ data['start-date-month'] }} {{ data['start-date-year'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="when-did-you-start">
+                Change<span class="govuk-visually-hidden"> answer</span>
+              </a>
+            </dd>
+          </div>
           {% endif %}
+          {% if data['have-you-started']=="No" %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Working 16 hours or more?
+              When do you start?
             </dt>
             <dd class="govuk-summary-list__value">
-              {{ data['more-than-16'] }}
+              {{ data['start-date-day'] }} {{ data['start-date-month'] }} {{ data['start-date-year'] }}
             </dd>
             <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="more-than-16">
-                Change<span class="govuk-visually-hidden"> hours</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Being paid more than
-              {% if data['benefit-type']=="Jobseeker's Allowance" %}&pound;79.70{% endif %}{% if data['benefit-type']=="Employment and Support Allowance" %}&pound;143{% endif %}?
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['are-you-being-paid'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="are-you-being-paid">
+              <a class="govuk-link" href="when-do-you-start">
                 Change<span class="govuk-visually-hidden"> answer</span>
               </a>
             </dd>
           </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              Will the job last longer than 5 weeks?
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['more-than-5-weeks'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="more-than-5-weeks">
-                Change<span class="govuk-visually-hidden"> answer</span>
-              </a>
-            </dd>
-          </div>
+          {% endif %}
         </dl>
 
         <h2 class="govuk-heading-m">Personal details</h2>

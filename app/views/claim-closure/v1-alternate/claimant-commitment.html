@@ -2,7 +2,7 @@
 {% extends "layout-cc.html" %}
 
 {% block pageTitle %}
-  Have you already started this job? – Service name
+  Do you have a claimant commitment? – Service name
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,25 +24,25 @@
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="dob" method="post" novalidate>
+        <form action="reason" method="post" novalidate>
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Have you already started this job?
+                  Do you have a claimant commitment?
                 </h1>
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started" name="have-you-started" type="radio" value="Yes" {{ checked("have-you-started", "Yes") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started">
+                  <input class="govuk-radios__input" id="claimant-commitment" name="claimant-commitment" type="radio" value="Yes" {{ checked("claimant-commitment", "Yes") }}>
+                  <label class="govuk-label govuk-radios__label" for="claimant-commitment">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started-2" name="have-you-started" type="radio" value="No" {{ checked("have-you-started", "No") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started-2">
+                  <input class="govuk-radios__input" id="claimant-commitment-2" name="claimant-commitment" type="radio" value="No" {{ checked("claimant-commitment", "No") }}>
+                  <label class="govuk-label govuk-radios__label" for="claimant-commitment-2">
                     No
                   </label>
                 </div>

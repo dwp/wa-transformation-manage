@@ -2,7 +2,7 @@
 {% extends "layout-cc.html" %}
 
 {% block pageTitle %}
-  Have you already started this job? – Service name
+  What is your name? – Service name
 {% endblock %}
 
 {% block beforeContent %}
@@ -30,22 +30,17 @@
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Have you already started this job?
+                  What is your name?
                 </h1>
               </legend>
-              <div class="govuk-radios" data-module="govuk-radios">
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started" name="have-you-started" type="radio" value="Yes" {{ checked("have-you-started", "Yes") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started">
-                    Yes
-                  </label>
-                </div>
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started-2" name="have-you-started" type="radio" value="No" {{ checked("have-you-started", "No") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started-2">
-                    No
-                  </label>
-                </div>
+              <div id="name" class="govuk-hint">
+                Enter your name as it appears on your claim
+              </div>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="name">
+                  Full name
+                </label>
+                <input class="govuk-input govuk-input--width-30" id="name" name="name" type="text" value="{{ data['name'] }}">
               </div>
 
             </fieldset>

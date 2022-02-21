@@ -2,7 +2,7 @@
 {% extends "layout-cc.html" %}
 
 {% block pageTitle %}
-  What is your date of birth? – Service name
+  When did you start this job? – Service name
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,41 +24,41 @@
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="more-than-16" method="post" novalidate>
+        <form action="appointments" method="post" novalidate>
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  What is your date of birth?
+                  When did you start this job?
                 </h1>
               </legend>
-              <div id="dob-hint" class="govuk-hint">
+              <div id="start-date-hint" class="govuk-hint">
                 For example, 31 3 1980
               </div>
-              <div class="govuk-date-input" id="dob">
+              <div class="govuk-date-input" id="start-date">
                 <div class="govuk-date-input__item">
                   <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="dob-day">
+                    <label class="govuk-label govuk-date-input__label" for="start-date-day">
                       Day
                     </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-day" name="dob-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-day'] }}">
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-day" name="start-date-day" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['start-date-day'] }}">
                   </div>
                 </div>
                 <div class="govuk-date-input__item">
                   <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="dob-month">
+                    <label class="govuk-label govuk-date-input__label" for="start-date-month">
                       Month
                     </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="dob-month" name="dob-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-month'] }}">
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-2" id="start-date-month" name="start-date-month" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['start-date-month'] }}">
                   </div>
                 </div>
                 <div class="govuk-date-input__item">
                   <div class="govuk-form-group">
-                    <label class="govuk-label govuk-date-input__label" for="dob-year">
+                    <label class="govuk-label govuk-date-input__label" for="start-date-year">
                       Year
                     </label>
-                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="dob-year" name="dob-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['dob-year'] }}">
+                    <input class="govuk-input govuk-date-input__input govuk-input--width-4" id="start-date-year" name="start-date-year" type="text" pattern="[0-9]*" inputmode="numeric" value="{{ data['start-date-year'] }}">
                   </div>
                 </div>
               </div>

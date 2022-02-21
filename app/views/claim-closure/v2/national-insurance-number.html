@@ -1,0 +1,67 @@
+
+{% extends "layout-cc.html" %}
+
+{% block pageTitle %}
+  What is your National Insurance number? – Service name
+{% endblock %}
+
+{% block beforeContent %}
+<div class="govuk-phase-banner">
+  <p class="govuk-phase-banner__content">
+    <strong class="govuk-tag govuk-phase-banner__content__tag">
+      alpha
+    </strong>
+    <span class="govuk-phase-banner__text">
+      This is a new service – your <a class="govuk-link" href="#">feedback</a> will help us to improve it.
+    </span>
+  </p>
+</div>
+
+<a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+<div class="govuk-grid-row">
+      <div class="govuk-grid-column-two-thirds">
+        <form action="name" method="post" novalidate>
+
+          <div class="govuk-form-group">
+            <fieldset class="govuk-fieldset">
+              <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                <h1 class="govuk-fieldset__heading">
+                  What is your National Insurance number?
+                </h1>
+              </legend>
+              <div id="national-insurance" class="govuk-hint">
+                It's on your National Insurance card, benefit letter, payslip or P60. For example, 'QQ 12 34 56 C'.
+              </div>
+              <div class="govuk-form-group">
+                <label class="govuk-label" for="national-insurance">
+                  National Insurance number
+                </label>
+                <input class="govuk-input govuk-input--width-20" id="national-insurance" name="national-insurance" type="text" value="{{ data['national-insurance'] }}">
+              </div>
+
+            </fieldset>
+          </div>
+
+          <details class="govuk-details" data-module="govuk-details">
+            <summary class="govuk-details__summary">
+              <span class="govuk-details__summary-text">
+                I cannot find my National Insurance number
+              </span>
+            </summary>
+            <div class="govuk-details__text">
+              You can find your National Insurance number on your payslip, P60, or letters about tax, pensions and benefits. If you cannot find it you can <a class="govuk-link" id="request-nino" href="https://www.gov.uk/lost-national-insurance-number">ask for a reminder through post.</a>
+            </div>
+          </details>
+
+          <button class="govuk-button" data-module="govuk-button">
+            Continue
+          </button>
+        </form>
+      </div>
+    </div>
+
+{% endblock %}

@@ -2,7 +2,7 @@
 {% extends "layout-cc.html" %}
 
 {% block pageTitle %}
-  Have you already started this job? – Service name
+  Which benefit claim do you want to close? – Service name
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,26 +24,26 @@
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="dob" method="post" novalidate>
+        <form action="reason" method="post" novalidate>
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Have you already started this job?
+                  Which benefit claim do you want to close?
                 </h1>
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started" name="have-you-started" type="radio" value="Yes" {{ checked("have-you-started", "Yes") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started">
-                    Yes
+                  <input class="govuk-radios__input" id="benefit-type" name="benefit-type" type="radio" value="Jobseeker's Allowance" {{ checked("benefit-type", "Jobseeker's Allowance") }}>
+                  <label class="govuk-label govuk-radios__label" for="benefit-type">
+                    Jobseeker's Allowance
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started-2" name="have-you-started" type="radio" value="No" {{ checked("have-you-started", "No") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started-2">
-                    No
+                  <input class="govuk-radios__input" id="benefit-type-2" name="benefit-type" type="radio" value="Employment and Support Allowance" {{ checked("benefit-type", "Employment and Support Allowance") }}>
+                  <label class="govuk-label govuk-radios__label" for="benefit-type-2">
+                    Employment and Support Allowance
                   </label>
                 </div>
               </div>

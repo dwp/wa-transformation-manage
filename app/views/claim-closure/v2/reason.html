@@ -2,7 +2,7 @@
 {% extends "layout-cc.html" %}
 
 {% block pageTitle %}
-  Why do you want to close your claim? – Service serviceName
+  Why do you want to close your {{ data['benefit-type'] }} claim? – Service serviceName
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,13 +24,13 @@
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="benefit-type" method="post" novalidate>
+        <form action="dob" method="post" novalidate>
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Why do you want to close your claim?
+                  Why do you want to close your {{ data['benefit-type'] }} claim?
                 </h1>
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
@@ -50,6 +50,30 @@
                   <input class="govuk-radios__input" id="reason-3" name="reason" type="radio" value="I want to stop claiming" {{ checked("reason", "I want to stop claiming") }}>
                   <label class="govuk-label govuk-radios__label" for="reason-3">
                     I want to stop claiming
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="reason-4" name="reason" type="radio" value="Going abroad" {{ checked("reason", "Going abroad") }}>
+                  <label class="govuk-label govuk-radios__label" for="reason-4">
+                    Going abroad
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="reason-5" name="reason" type="radio" value="Claiming another benefit" {{ checked("reason", "Claiming another benefit") }}>
+                  <label class="govuk-label govuk-radios__label" for="reason-5">
+                    Claiming another benefit
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="reason-6" name="reason" type="radio" value="Reached retirement age" {{ checked("reason", "Reached retirement age") }}>
+                  <label class="govuk-label govuk-radios__label" for="reason-6">
+                    Reached retirement age
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="reason-7" name="reason" type="radio" value="Joined a religous order" {{ checked("reason", "Joined a religous order") }}>
+                  <label class="govuk-label govuk-radios__label" for="reason-7">
+                    Joined a religous order
                   </label>
                 </div>
               </div>

@@ -5,95 +5,153 @@ const router = express.Router()
 
 module.exports = router
 
+// Found work version 1
 
-// No claimant commitment
+  // No claimant commitment
 
-router.post('/claim-closure/v1/reason', function (req, res) {
+  router.post('/claim-closure/v1/reason', function (req, res) {
 
-  let claimantCommitment = req.session.data['claimant-commitment']
+    let claimantCommitment = req.session.data['claimant-commitment']
 
-  if (claimantCommitment === 'No') {
-    res.redirect('/claim-closure/v1/no-claimant-commitment')
-  } else {
-    res.redirect('/claim-closure/v1/reason')
-  }
-})
+    if (claimantCommitment === 'No') {
+      res.redirect('/claim-closure/v1/no-claimant-commitment')
+    } else {
+      res.redirect('/claim-closure/v1/reason')
+    }
+  })
 
-// Reason routing
+  // Reason routing
+
+  // Starting work
+
+  router.post('/claim-closure/v1/dob', function (req, res) {
+
+    let alreadyStarted = req.session.data['have-you-started']
+
+    if (alreadyStarted === 'No') {
+      res.redirect('/claim-closure/v1/next-7-days')
+    } else {
+      res.redirect('/claim-closure/v1/dob')
+    }
+  })
+
+  router.post('/claim-closure/v1/no-next-7-days', function (req, res) {
+
+    let sevenDays = req.session.data['next-7-days']
+
+    if (sevenDays === 'No') {
+      res.redirect('/claim-closure/v1/no-next-7-days')
+    } else {
+      res.redirect('/claim-closure/v1/dob')
+    }
+  })
+
+  // Being paid
+
+  router.post('/claim-closure/v1/more-than-16', function (req, res) {
+
+    let gettingPaid = req.session.data['are-you-being-paid']
+
+    if (gettingPaid === 'No') {
+      res.redirect('/claim-closure/v1/no-being-paid')
+    } else {
+      res.redirect('/claim-closure/v1/more-than-16')
+    }
+  })
+
+  router.post('/claim-closure/v1/no-more-than-16', function (req, res) {
+
+    let beingPaid = req.session.data['are-you-being-paid']
+
+    if (beingPaid === 'Yes') {
+      res.redirect('/claim-closure/v1/more-than-5-weeks')
+    } else {
+      res.redirect('/claim-closure/v1/no-more-than-16')
+    }
+  })
+
+  // 16 or more hours
+
+  router.post('/claim-closure/v1/more-than-5-weeks', function (req, res) {
+
+    let yourHours = req.session.data['more-than-16']
+
+    if (yourHours === 'No') {
+      res.redirect('/claim-closure/v1/are-you-being-paid')
+    } else {
+      res.redirect('/claim-closure/v1/more-than-5-weeks')
+    }
+  })
 
 
-// Benefit type
+// Found work version 2
 
-router.post('/claim-closure/v1/have-you-started', function (req, res) {
+  // Reasons
 
-  let benefitType = req.session.data['benefit-type']
+  router.post('/claim-closure/v2/dob', function (req, res) {
 
-  if (benefitType === 'Employment and Support Allowance') {
-    res.redirect('/claim-closure/v1/permitted-work')
-  } else {
-    res.redirect('/claim-closure/v1/have-you-started')
-  }
-})
+    let reason = req.session.data['reason']
 
-// Permitted Work
+    if (reason === 'Found work') {
+      res.redirect('/claim-closure/v2/dob')
+    } else {
+      res.redirect('/claim-closure/v2/no-reason')
+    }
+  })
 
-router.post('/claim-closure/v1/yes-permitted-work', function (req, res) {
+  // Employment type
 
-  let permittedWork = req.session.data['permitted-work']
+  router.post('/claim-closure/v2/hours', function (req, res) {
 
-  if (permittedWork === 'No') {
-    res.redirect('/claim-closure/v1/have-you-started')
-  } else {
-    res.redirect('/claim-closure/v1/yes-permitted-work')
-  }
-})
+    let employmentType = req.session.data['employment-type']
 
-// Starting work
+    if (employmentType === 'Full time') {
+      res.redirect('/claim-closure/v2/more-than-5-weeks')
+    } else if (employmentType === 'Part time') {
+      res.redirect('/claim-closure/v2/hours')
+    } else if (employmentType === 'Self employment') {
+      res.redirect('/claim-closure/v2/hours')
+    } else {
+      res.redirect('/claim-closure/v2/no-employment-type')
+    }
+  })
 
-router.post('/claim-closure/v1/are-you-being-paid', function (req, res) {
+  // Employment type
 
-  let alreadyStarted = req.session.data['have-you-started']
+  router.post('/claim-closure/v2/more-than-5-weeks', function (req, res) {
 
-  if (alreadyStarted === 'No') {
-    res.redirect('/claim-closure/v1/next-7-days')
-  } else {
-    res.redirect('/claim-closure/v1/are-you-being-paid')
-  }
-})
+    let hours = req.session.data['hours']
 
-router.post('/claim-closure/v1/no-next-7-days', function (req, res) {
+    if (hours === '16 hours or more') {
+      res.redirect('/claim-closure/v2/more-than-5-weeks')
+    } else {
+      res.redirect('/claim-closure/v2/are-you-being-paid')
+    }
+  })
 
-  let sevenDays = req.session.data['next-7-days']
+  // Payment amount
 
-  if (sevenDays === 'No') {
-    res.redirect('/claim-closure/v1/no-next-7-days')
-  } else {
-    res.redirect('/claim-closure/v1/are-you-being-paid')
-  }
-})
+  router.post('/claim-closure/v2/no-being-paid', function (req, res) {
 
-// Being paid
+    let benefitType = req.session.data['benefit-type']
+    let earnings = +req.session.data['earnings-per-week']
 
-router.post('/claim-closure/v1/more-than-16', function (req, res) {
+    if (earnings > '79.70') {
+      res.redirect('/claim-closure/v2/more-than-5-weeks')
+    } else {
+      res.redirect('/claim-closure/v2/no-being-paid')
+    }
+  })
 
-  let gettingPaid = req.session.data['are-you-being-paid']
+  // Start date
 
-  if (gettingPaid === 'No') {
-    res.redirect('/claim-closure/v1/no-being-paid')
-  } else {
-    res.redirect('/claim-closure/v1/more-than-16')
-  }
-})
+  router.post('/claim-closure/v2/when-did-you-start', function (req, res) {
 
-// 16 or more hours
+    let started = req.session.data['have-you-started']
 
-router.post('/claim-closure/v1/more-than-5-weeks', function (req, res) {
-
-  let yourHours = req.session.data['more-than-16']
-
-  if (yourHours === 'No') {
-    res.redirect('/claim-closure/v1/no-more-than-16')
-  } else {
-    res.redirect('/claim-closure/v1/more-than-5-weeks')
-  }
-})
+    if (started === 'Yes') {
+      res.redirect('/claim-closure/v2/when-did-you-start')
+    } else {
+      res.redirect('/claim-closure/v2/when-do-you-start')
+    }
+  })

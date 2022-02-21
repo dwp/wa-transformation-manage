@@ -2,7 +2,7 @@
 {% extends "layout-cc.html" %}
 
 {% block pageTitle %}
-  Have you already started this job? – Service name
+Are you being paid for this job? – Service name
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,25 +24,25 @@
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="dob" method="post" novalidate>
+        <form action="more-than-16" method="post" novalidate>
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Have you already started this job?
+                  Are you being paid for this job?
                 </h1>
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started" name="have-you-started" type="radio" value="Yes" {{ checked("have-you-started", "Yes") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started">
+                  <input class="govuk-radios__input" id="are-you-being-paid" name="are-you-being-paid" type="radio" value="Yes" {{ checked("are-you-being-paid", "Yes") }}>
+                  <label class="govuk-label govuk-radios__label" for="are-you-being-paid">
                     Yes
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started-2" name="have-you-started" type="radio" value="No" {{ checked("have-you-started", "No") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started-2">
+                  <input class="govuk-radios__input" id="are-you-being-paid-2" name="are-you-being-paid" type="radio" value="No" {{ checked("are-you-being-paid", "No") }}>
+                  <label class="govuk-label govuk-radios__label" for="are-you-being-paid-2">
                     No
                   </label>
                 </div>

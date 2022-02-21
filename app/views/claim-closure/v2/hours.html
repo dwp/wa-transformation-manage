@@ -2,7 +2,7 @@
 {% extends "layout-cc.html" %}
 
 {% block pageTitle %}
-  Have you already started this job? – Service name
+  How many hours will you be working? – Service name
 {% endblock %}
 
 {% block beforeContent %}
@@ -24,26 +24,32 @@
 
 <div class="govuk-grid-row">
       <div class="govuk-grid-column-two-thirds">
-        <form action="dob" method="post" novalidate>
+        <form action="more-than-5-weeks" method="post" novalidate>
 
           <div class="govuk-form-group">
             <fieldset class="govuk-fieldset">
               <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
                 <h1 class="govuk-fieldset__heading">
-                  Have you already started this job?
+                  How many hours will you be working?
                 </h1>
               </legend>
               <div class="govuk-radios" data-module="govuk-radios">
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started" name="have-you-started" type="radio" value="Yes" {{ checked("have-you-started", "Yes") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started">
-                    Yes
+                  <input class="govuk-radios__input" id="hours" name="hours" type="radio" value="16 hours or more" {{ checked("hours", "16 hours or more") }}>
+                  <label class="govuk-label govuk-radios__label" for="hours">
+                    16 hours or more
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="have-you-started-2" name="have-you-started" type="radio" value="No" {{ checked("have-you-started", "No") }}>
-                  <label class="govuk-label govuk-radios__label" for="have-you-started-2">
-                    No
+                  <input class="govuk-radios__input" id="hours-2" name="hours" type="radio" value="Under 16 hours" {{ checked("hours", "Under 16 hours") }}>
+                  <label class="govuk-label govuk-radios__label" for="hours-2">
+                    Under 16 hours
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="hours-3" name="hours" type="radio" value="I don't know" {{ checked("hours", "I don't know") }}>
+                  <label class="govuk-label govuk-radios__label" for="hours-3">
+                    I don't know
                   </label>
                 </div>
               </div>
