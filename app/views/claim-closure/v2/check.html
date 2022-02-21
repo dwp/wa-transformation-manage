@@ -32,19 +32,6 @@
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Claimant commitment
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['claimant-commitment'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="claimant-commitment">
-                Change<span class="govuk-visually-hidden"> answer</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
               Benefit type
             </dt>
             <dd class="govuk-summary-list__value">
@@ -74,21 +61,6 @@
         <h2 class="govuk-heading-m">Work details</h2>
 
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
-          {% if data['permitted-work']=="No" %}
-            <div class="govuk-summary-list__row">
-              <dt class="govuk-summary-list__key">
-                Is it permitted work?
-              </dt>
-              <dd class="govuk-summary-list__value">
-                {{ data['permitted-work'] }}
-              </dd>
-              <dd class="govuk-summary-list__actions">
-                <a class="govuk-link" href="permitted-work">
-                  Change<span class="govuk-visually-hidden"> answer</span>
-                </a>
-              </dd>
-            </div>
-          {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
               Employment type
@@ -112,6 +84,19 @@
             <dd class="govuk-summary-list__actions">
               <a class="govuk-link" href="hours">
                 Change<span class="govuk-visually-hidden"> hours</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Earnings per week
+            </dt>
+            <dd class="govuk-summary-list__value">
+              &pound;{{ data['earnings-per-week'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="are-you-being-paid">
+                Change<span class="govuk-visually-hidden"> answer</span>
               </a>
             </dd>
           </div>

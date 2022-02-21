@@ -32,19 +32,6 @@
         <dl class="govuk-summary-list govuk-!-margin-bottom-9">
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Claimant commitment
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['claimant-commitment'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="claimant-commitment">
-                Change<span class="govuk-visually-hidden"> answer</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
               Benefit type
             </dt>
             <dd class="govuk-summary-list__value">
@@ -119,20 +106,7 @@
           {% endif %}
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              Are you being paid?
-            </dt>
-            <dd class="govuk-summary-list__value">
-              {{ data['are-you-being-paid'] }}
-            </dd>
-            <dd class="govuk-summary-list__actions">
-              <a class="govuk-link" href="are-you-being-paid">
-                Change<span class="govuk-visually-hidden"> answer</span>
-              </a>
-            </dd>
-          </div>
-          <div class="govuk-summary-list__row">
-            <dt class="govuk-summary-list__key">
-              16 hours or more
+              Working 16 hours or more?
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['more-than-16'] }}
@@ -145,7 +119,21 @@
           </div>
           <div class="govuk-summary-list__row">
             <dt class="govuk-summary-list__key">
-              More than 5 weeks
+              Being paid more than
+              {% if data['benefit-type']=="Jobseeker's Allowance" %}&pound;79.70{% endif %}{% if data['benefit-type']=="Employment and Support Allowance" %}&pound;143{% endif %}?
+            </dt>
+            <dd class="govuk-summary-list__value">
+              {{ data['are-you-being-paid'] }}
+            </dd>
+            <dd class="govuk-summary-list__actions">
+              <a class="govuk-link" href="are-you-being-paid">
+                Change<span class="govuk-visually-hidden"> answer</span>
+              </a>
+            </dd>
+          </div>
+          <div class="govuk-summary-list__row">
+            <dt class="govuk-summary-list__key">
+              Will the job last longer than 5 weeks?
             </dt>
             <dd class="govuk-summary-list__value">
               {{ data['more-than-5-weeks'] }}

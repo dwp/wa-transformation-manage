@@ -22,43 +22,16 @@ module.exports = router
 
   // Reason routing
 
-
-  // Benefit type
-
-  router.post('/claim-closure/v1/have-you-started', function (req, res) {
-
-    let benefitType = req.session.data['benefit-type']
-
-    if (benefitType === 'Employment and Support Allowance') {
-      res.redirect('/claim-closure/v1/permitted-work')
-    } else {
-      res.redirect('/claim-closure/v1/have-you-started')
-    }
-  })
-
-  // Permitted Work
-
-  router.post('/claim-closure/v1/yes-permitted-work', function (req, res) {
-
-    let permittedWork = req.session.data['permitted-work']
-
-    if (permittedWork === 'No') {
-      res.redirect('/claim-closure/v1/have-you-started')
-    } else {
-      res.redirect('/claim-closure/v1/yes-permitted-work')
-    }
-  })
-
   // Starting work
 
-  router.post('/claim-closure/v1/are-you-being-paid', function (req, res) {
+  router.post('/claim-closure/v1/dob', function (req, res) {
 
     let alreadyStarted = req.session.data['have-you-started']
 
     if (alreadyStarted === 'No') {
       res.redirect('/claim-closure/v1/next-7-days')
     } else {
-      res.redirect('/claim-closure/v1/are-you-being-paid')
+      res.redirect('/claim-closure/v1/dob')
     }
   })
 
@@ -69,7 +42,7 @@ module.exports = router
     if (sevenDays === 'No') {
       res.redirect('/claim-closure/v1/no-next-7-days')
     } else {
-      res.redirect('/claim-closure/v1/are-you-being-paid')
+      res.redirect('/claim-closure/v1/dob')
     }
   })
 
@@ -86,6 +59,17 @@ module.exports = router
     }
   })
 
+  router.post('/claim-closure/v1/no-more-than-16', function (req, res) {
+
+    let beingPaid = req.session.data['are-you-being-paid']
+
+    if (beingPaid === 'Yes') {
+      res.redirect('/claim-closure/v1/more-than-5-weeks')
+    } else {
+      res.redirect('/claim-closure/v1/no-more-than-16')
+    }
+  })
+
   // 16 or more hours
 
   router.post('/claim-closure/v1/more-than-5-weeks', function (req, res) {
@@ -93,7 +77,7 @@ module.exports = router
     let yourHours = req.session.data['more-than-16']
 
     if (yourHours === 'No') {
-      res.redirect('/claim-closure/v1/no-more-than-16')
+      res.redirect('/claim-closure/v1/are-you-being-paid')
     } else {
       res.redirect('/claim-closure/v1/more-than-5-weeks')
     }
@@ -102,27 +86,14 @@ module.exports = router
 
 // Found work version 2
 
-  // No claimant commitment
-
-  router.post('/claim-closure/v2/reason', function (req, res) {
-
-    let claimantCommitment = req.session.data['claimant-commitment']
-
-    if (claimantCommitment === 'No') {
-      res.redirect('/claim-closure/v2/no-claimant-commitment')
-    } else {
-      res.redirect('/claim-closure/v2/reason')
-    }
-  })
-
   // Reasons
 
-  router.post('/claim-closure/v2/employment-type', function (req, res) {
+  router.post('/claim-closure/v2/dob', function (req, res) {
 
     let reason = req.session.data['reason']
 
     if (reason === 'Found work') {
-      res.redirect('/claim-closure/v2/employment-type')
+      res.redirect('/claim-closure/v2/dob')
     } else {
       res.redirect('/claim-closure/v2/no-reason')
     }
@@ -135,8 +106,10 @@ module.exports = router
     let employmentType = req.session.data['employment-type']
 
     if (employmentType === 'Full time') {
-      res.redirect('/claim-closure/v2/hours')
+      res.redirect('/claim-closure/v2/more-than-5-weeks')
     } else if (employmentType === 'Part time') {
+      res.redirect('/claim-closure/v2/hours')
+    } else if (employmentType === 'Self employment') {
       res.redirect('/claim-closure/v2/hours')
     } else {
       res.redirect('/claim-closure/v2/no-employment-type')
@@ -152,7 +125,21 @@ module.exports = router
     if (hours === '16 hours or more') {
       res.redirect('/claim-closure/v2/more-than-5-weeks')
     } else {
-      res.redirect('/claim-closure/v2/no-hours')
+      res.redirect('/claim-closure/v2/are-you-being-paid')
+    }
+  })
+
+  // Payment amount
+
+  router.post('/claim-closure/v2/no-being-paid', function (req, res) {
+
+    let benefitType = req.session.data['benefit-type']
+    let earnings = +req.session.data['earnings-per-week']
+
+    if (earnings > '79.70') {
+      res.redirect('/claim-closure/v2/more-than-5-weeks')
+    } else {
+      res.redirect('/claim-closure/v2/no-being-paid')
     }
   })
 

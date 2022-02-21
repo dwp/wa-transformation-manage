@@ -47,25 +47,23 @@
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="employment-type-3" name="employment-type" type="radio" value="Zero hours contract" {{ checked("employment-type", "Zero hours contract") }}>
+                  <input class="govuk-radios__input" id="employment-type-3" name="employment-type" type="radio" value="Self employment" {{ checked("employment-type", "Self employment") }}>
                   <label class="govuk-label govuk-radios__label" for="employment-type-3">
+                    Self employment
+                  </label>
+                </div>
+                <div class="govuk-radios__item">
+                  <input class="govuk-radios__input" id="employment-type-4" name="employment-type" type="radio" value="Zero hours contract" {{ checked("employment-type", "Zero hours contract") }}>
+                  <label class="govuk-label govuk-radios__label" for="employment-type-4">
                     Zero hours contract
                   </label>
                 </div>
                 <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="employment-type-4" name="employment-type" type="radio" value="Self employment" {{ checked("employment-type", "Self employment") }}>
-                  <label class="govuk-label govuk-radios__label" for="employment-type-4">
-                    Self employment
-                  </label>
-                </div>
-                {% if data['benefit-type']=="Employment and Support Allowance" %}
-                <div class="govuk-radios__item">
-                  <input class="govuk-radios__input" id="employment-type-5" name="employment-type" type="radio" value="Permitted work" {{ checked("employment-type", "Permitted work") }}>
+                  <input class="govuk-radios__input" id="employment-type-5" name="employment-type" type="radio" value="Apprenticeship" {{ checked("employment-type", "Apprenticeship") }}>
                   <label class="govuk-label govuk-radios__label" for="employment-type-5">
-                    Permitted work
+                    Apprenticeship
                   </label>
                 </div>
-                {% endif %}
               </div>
 
             </fieldset>
